@@ -1,11 +1,9 @@
 package stepdefs;
 
-import com.codeborne.selenide.Configuration;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.testng.annotations.Parameters;
 import pages.DashboardPage;
 import pages.LoginPage;
 
@@ -53,15 +51,4 @@ public class Login {
         DashboardPage.logout();
     }
 
-    @Parameters({"browser"})
-    @Given("^browser setUp$")
-    public void browserSetUp(String browser) throws Throwable {
-        Configuration.browser = browser;
-    }
-
-    //@Parameters({"browser"})
-    @Given("^browser setUp with \"([^\"]*)\"$")
-    public void browserSetUpWith(String browser) throws Throwable {
-        Configuration.browser = browser;
-    }
 }

@@ -24,10 +24,3 @@ Feature: Create Issue Test
     Then I am on the System Dashboard page on URL "http://jira.hillel.it:8080/secure/Dashboard.jspa"
     Then I try create new issue without summary
     Then I am logout
-
-
-
-#    Then I try create new issue without summary
-
-
-

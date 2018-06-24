@@ -79,7 +79,6 @@ public class CreateNewIssue {
         assertEquals($(By.xpath(xpathForIssueCreatedAllert)).getText().contains(summaryText), true);
     }
 
-
     @And("^print (\\d+)$")
     public void print(int stringNumber) throws Throwable {
         System.out.println(stringNumber);

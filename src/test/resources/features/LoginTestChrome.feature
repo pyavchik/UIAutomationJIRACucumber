@@ -4,7 +4,7 @@ Feature: Login Test
   I want to login my jira profile using my credentials
 
   Background: User navigates to Jira home page
-    Given browser setUp with "chrome"
+#    Given browser setUp with "chrome"
     Given I am on the Jira home page on URL "http://jira.hillel.it:8080/login.jsp"
     Then I should see "Welcome to Hillel IT School JIRA" message
 
