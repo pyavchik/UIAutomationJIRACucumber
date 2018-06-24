@@ -34,4 +34,5 @@ public class SmokeTest {
     public void iShouldSeeTestsLink() throws Throwable {
         assertEquals(MainPage.findTestsLink().isDisplayed(), true);
     }
+
 }

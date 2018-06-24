@@ -5,9 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-
 import static com.codeborne.selenide.Selenide.*;
-import static org.testng.Assert.assertEquals;
 
 
 public class ReportedByMeIssuesPage {
@@ -34,7 +32,6 @@ public class ReportedByMeIssuesPage {
         open(REPORTED_BY_ME_ISSUES);
         ReportedByMeIssuesPage.xpathReportedByMeIssue = String.format("//span[@class='issue-link-summary'][contains(text(),'%s')]", summary);
         findReportedByMeIssueLink().click();
-
         findCommentLink().click();
         switchTo().frame("mce_0_ifr");
         findDescriptionTextBox().setValue(commentText);
@@ -82,9 +79,6 @@ public class ReportedByMeIssuesPage {
         findMoreButton().click();
         findDeleteButton().click();
         findDeleteButtonInDeleteWindow().click();
-
-        assertEquals($(By.xpath(xpathForPopUpAllert)).getText().contains("has been deleted"), true);
-
     }
 
     public static void updateIssueDescription(String summary, String updatedDescription) {

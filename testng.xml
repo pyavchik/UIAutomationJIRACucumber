@@ -5,5 +5,11 @@
         <classes>
             <class name="TestRunner"/>
         </classes>
+
     </test>
+    <listeners>
+        <listener class-name="MyTestListeners">
+
+        </listener>
+    </listeners>
 </suite>

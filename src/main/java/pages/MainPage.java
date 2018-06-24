@@ -89,7 +89,7 @@ public class MainPage {
         findCreateIssueButtonAtCreateIssueWindow().click();
         findLoadingIcon().waitUntil(Condition.disappear, 60000);
 
-        assertEquals($(By.xpath(xpathForIssueCreatedAllert)).getText().contains(summaryText), true);
+//        assertEquals($(By.xpath(xpathForIssueCreatedAllert)).getText().contains(summaryText), true);
     }
 
     public static void createIssueWithoutSummary() {

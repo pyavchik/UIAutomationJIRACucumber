@@ -1,21 +1,20 @@
 import cucumber.api.CucumberOptions;
-import cucumber.api.testng.TestNGCucumberRunner;
 import cucumber.api.testng.CucumberFeatureWrapper;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import cucumber.api.testng.TestNGCucumberRunner;
+import org.testng.annotations.*;
 
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepdefs"},
         tags = {"~@Ignore"},
+//        tags = {"~@Ignore", "@stable", "@wip"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/rerun.txt"
         })
+@Listeners(MyTestListeners.class)
 public class TestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
 

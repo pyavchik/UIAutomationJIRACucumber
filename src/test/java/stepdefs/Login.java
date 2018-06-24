@@ -47,8 +47,8 @@ public class Login {
         assertEquals(LoginPage.findErrorMessage().getText().contains(errorMessage), true);
     }
 
-    @Then("^I am loguot$")
-    public void iAmLoguot() throws Throwable {
+    @Then("^I am logout$")
+    public void iAmLogout() throws Throwable {
         DashboardPage.logout();
     }
 }

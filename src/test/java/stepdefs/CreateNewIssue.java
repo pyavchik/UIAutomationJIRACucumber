@@ -12,6 +12,8 @@ import static org.testng.Assert.assertEquals;
 public class CreateNewIssue {
     private static String xpathForIssueUpdatedAllert = "//div[@class='aui-message aui-message-success success closeable shadowed aui-will-close']";
     private static String xpathForComment = "//div[@class='action-body flooded']";
+    private static String xpathForIssueCreatedAllert = "//a[@class='issue-created-key issue-link']";
+    private static String xpathForPopUpAllert = "//div[@class='aui-message aui-message-success success closeable shadowed aui-will-close']";
 
     @Then("^I create new issue$")
     public void iCreateNewIssue() throws Throwable {
@@ -37,6 +39,7 @@ public class CreateNewIssue {
     @And("^I delete created issue$")
     public void iDeleteCreatedIssue() throws Throwable {
         ReportedByMeIssuesPage.deleteIssueReportedByMe("summaryText test issue");
+        assertEquals($(By.xpath(xpathForPopUpAllert)).getText().contains("has been deleted"), true);
     }
 
     @And("^I create new comment with \"([^\"]*)\"$")
@@ -48,11 +51,6 @@ public class CreateNewIssue {
     public void iShouldSeeCommentWith(String comment) throws Throwable {
         assertEquals(ReportedByMeIssuesPage.at(), true);
         assertEquals($(By.xpath(xpathForComment)).getText().contains(comment), true);
-    }
-
-    @Then("^I can read comment with \"([^\"]*)\"Comment text\"$")
-    public void iCanReadCommentWithCommentText(String comment) throws Throwable {
-        assertEquals(ReportedByMeIssuesPage.readComment().contains(comment), true);
     }
 
     @And("^update comment with \"([^\"]*)\"$")
@@ -68,5 +66,27 @@ public class CreateNewIssue {
     @Then("^I should see text \"([^\"]*)\"$")
     public void iShouldSeeText(String textNoComment) throws Throwable {
         assertEquals(ReportedByMeIssuesPage.findDeletedCommentText().getText().contains(textNoComment), true);
+    }
+
+    @Then("^Issue should be deleted$")
+    public void issueShouldBeDeleted() throws Throwable {
+        assertEquals($(By.xpath(xpathForPopUpAllert)).getText().contains("has been deleted"), true);
+    }
+
+
+    @Then("^I should see alert with created issue with \"([^\"]*)\"$")
+    public void iShouldSeeAlertWithCreatedIssueWith(String summaryText) throws Throwable {
+        assertEquals($(By.xpath(xpathForIssueCreatedAllert)).getText().contains(summaryText), true);
+    }
+
+
+    @And("^print (\\d+)$")
+    public void print(int stringNumber) throws Throwable {
+        System.out.println(stringNumber);
+    }
+
+    @Then("^I can read comment with \"([^\"]*)\"$")
+    public void iCanReadCommentWith(String comment) throws Throwable {
+        assertEquals(ReportedByMeIssuesPage.readComment().contains(comment), true);
     }
 }
