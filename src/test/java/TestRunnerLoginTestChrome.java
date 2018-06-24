@@ -4,7 +4,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import org.testng.annotations.*;
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/LoginTestChrome.feature",
         glue = {"stepdefs"},
         tags = {"~@Ignore"},
         format = {
@@ -14,7 +14,7 @@ import org.testng.annotations.*;
                 "rerun:target/cucumber-reports/rerun.txt"
         })
 @Listeners(MyTestListeners.class)
-public class TestRunner {
+public class TestRunnerLoginTestChrome {
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass(alwaysRun = true)

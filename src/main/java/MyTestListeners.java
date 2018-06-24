@@ -12,6 +12,7 @@ public class MyTestListeners implements ITestListener {
     public void onTestStart(ITestResult iTestResult) {
         Configuration.timeout = 30000;
         Configuration.screenshots = false;
+
     }
 
     @Override
