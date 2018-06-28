@@ -11,8 +11,11 @@ import org.testng.annotations.*;
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
-                "rerun:target/cucumber-reports/rerun.txt"
-        })
+                "com.cucumber.listener.ExtentCucumberFormatter:target/report.html"
+                //"rerun:target/cucumber-reports/rerun.txt"
+        }
+)
+
 @Listeners(MyTestListeners.class)
 public class TestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
